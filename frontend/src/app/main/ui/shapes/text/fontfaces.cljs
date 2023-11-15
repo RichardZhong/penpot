@@ -9,7 +9,6 @@
    [app.common.data :as d]
    [app.common.files.helpers :as cfh]
    [app.main.fonts :as fonts]
-   [app.main.ui.shapes.embed :as embed]
    [app.util.object :as obj]
    [beicon.core :as rx]
    [clojure.set :as set]
@@ -76,7 +75,8 @@
                     #(fonts/extract-fontface-urls fonts-css))
 
         ;; Calculate the data-uris for these fonts
-        fonts-embed (embed/use-data-uris fonts-urls)
+        ;; fonts-embed (embed/use-data-uris fonts-urls)
+        fonts-embed fonts-urls
 
         loading? (some? (d/seek #(not (contains? fonts-embed %)) fonts-urls))
 

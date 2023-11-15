@@ -13,10 +13,9 @@
    [app.common.geom.shapes :as gsh]
    [app.common.geom.shapes.bounds :as gsb]
    [app.common.geom.shapes.text :as gst]
-   [app.config :as cf]
+   [app.config :as cfg]
    [app.main.ui.context :as muc]
    [app.main.ui.shapes.attrs :as attrs]
-   [app.main.ui.shapes.embed :as embed]
    [app.main.ui.shapes.gradients :as grad]
    [app.util.object :as obj]
    [cuerdas.core :as str]
@@ -211,8 +210,9 @@
                            :gradient gradient
                            :shape shape}
         stroke-image  (:stroke-image stroke)
-        uri           (when stroke-image (cf/resolve-file-media stroke-image))
-        embed         (embed/use-data-uris [uri])
+        uri           (when stroke-image (cfg/resolve-file-media stroke-image))
+
+        embed         [uri]
 
         stroke-width  (case (:stroke-alignment stroke :center)
                         :center (/ (:stroke-width stroke 0) 2)

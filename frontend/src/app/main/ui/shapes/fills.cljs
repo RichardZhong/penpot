@@ -11,7 +11,6 @@
    [app.common.geom.shapes :as gsh]
    [app.config :as cfg]
    [app.main.ui.shapes.attrs :as attrs]
-   [app.main.ui.shapes.embed :as embed]
    [app.main.ui.shapes.gradients :as grad]
    [app.util.object :as obj]
    [rumext.v2 :as mf]))
@@ -51,7 +50,8 @@
                        (map cfg/resolve-file-media))
                      fills)
 
-        embed       (embed/use-data-uris uris)
+        ;; embed       (embed/use-data-uris uris)
+        embed       uris
         transform   (gsh/transform-str shape)
 
         ;; When true the image has not loaded yet
