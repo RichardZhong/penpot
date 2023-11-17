@@ -54,11 +54,11 @@
 // NEW DASHBOARD CSS
 
 .dashboard-layout-refactor {
-  background-color: $db-primary;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-columns: 40px 256px 1fr;
-  height: 100vh;
+  // background-color: $db-primary;
+  // display: grid;
+  // grid-template-rows: 50px 1fr;
+  // grid-template-columns: 40px 256px 1fr;
+  // height: 100vh;
 
   .context-menu-items {
     background-color: $db-tertiary;
@@ -90,223 +90,223 @@
     }
   }
 
-  .dashboard-sidebar {
-    background-color: $db-primary;
-    border-right: 1px solid $db-cuaternary;
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 2;
-    margin: 0 1rem 0 0;
-    padding: 1rem 0 0 0;
+  // .dashboard-sidebar {
+  //   background-color: $db-primary;
+  //   border-right: 1px solid $db-cuaternary;
+  //   grid-row: 1 / span 2;
+  //   grid-column: 1 / span 2;
+  //   margin: 0 1rem 0 0;
+  //   padding: 1rem 0 0 0;
 
-    .dropdown {
-      background-color: $db-tertiary;
-      border: 1px solid $db-cuaternary;
-      border-radius: 8px;
-      min-width: 252px;
+  //   .dropdown {
+  //     background-color: $db-tertiary;
+  //     border: 1px solid $db-cuaternary;
+  //     border-radius: 8px;
+  //     min-width: 252px;
 
-      .separator {
-        border-color: transparent;
-        margin-top: 10px;
-      }
+  //     .separator {
+  //       border-color: transparent;
+  //       margin-top: 10px;
+  //     }
 
-      li {
-        border-radius: 8px;
-        height: 40px;
-        margin: 5px;
+  //     li {
+  //       border-radius: 8px;
+  //       height: 40px;
+  //       margin: 5px;
 
-        &:hover {
-          background-color: $db-cuaternary;
-        }
-      }
+  //       &:hover {
+  //         background-color: $db-cuaternary;
+  //       }
+  //     }
 
-      &.options-dropdown {
-        li {
-          color: $df-primary;
-          &.warning {
-            color: $color-danger;
-          }
-        }
-      }
-    }
+  //     &.options-dropdown {
+  //       li {
+  //         color: $df-primary;
+  //         &.warning {
+  //           color: $color-danger;
+  //         }
+  //       }
+  //     }
+  //   }
 
-    .sidebar-content {
-      .back-to-dashboard {
-        .icon {
-          svg {
-            fill: $df-secondary;
-          }
-        }
-        .text {
-          color: $df-primary;
-        }
-      }
-      .sidebar-team-switch {
-        .switch-content {
-          background-color: $db-tertiary;
-          border-radius: 8px;
-          border-color: transparent;
-          height: 48px;
+  //   .sidebar-content {
+  //     .back-to-dashboard {
+  //       .icon {
+  //         svg {
+  //           fill: $df-secondary;
+  //         }
+  //       }
+  //       .text {
+  //         color: $df-primary;
+  //       }
+  //     }
+  //     .sidebar-team-switch {
+  //       .switch-content {
+  //         background-color: $db-tertiary;
+  //         border-radius: 8px;
+  //         border-color: transparent;
+  //         height: 48px;
 
-          .current-team {
-            border-right: 1px solid $db-primary;
-            height: 100%;
-          }
+  //         .current-team {
+  //           border-right: 1px solid $db-primary;
+  //           height: 100%;
+  //         }
 
-          svg {
-            fill: $df-secondary;
-          }
+  //         svg {
+  //           fill: $df-secondary;
+  //         }
 
-          .team-name {
-            .team-text {
-              color: $df-primary;
-              width: 145px;
-            }
-          }
-        }
-      }
+  //         .team-name {
+  //           .team-text {
+  //             color: $df-primary;
+  //             width: 145px;
+  //           }
+  //         }
+  //       }
+  //     }
 
-      .teams-dropdown {
-        background-color: $db-tertiary;
-        border-radius: 8px;
-        border: 1px solid $db-cuaternary;
-        min-width: 248px;
+  //     .teams-dropdown {
+  //       background-color: $db-tertiary;
+  //       border-radius: 8px;
+  //       border: 1px solid $db-cuaternary;
+  //       min-width: 248px;
 
-        li {
-          border-radius: 8px;
-          height: 42px;
-          padding: 0 5px;
-          margin: 5px;
+  //       li {
+  //         border-radius: 8px;
+  //         height: 42px;
+  //         padding: 0 5px;
+  //         margin: 5px;
 
-          .team-text {
-            color: $df-primary;
-            width: 165px;
-          }
-          svg {
-            fill: $df-secondary;
-          }
+  //         .team-text {
+  //           color: $df-primary;
+  //           width: 165px;
+  //         }
+  //         svg {
+  //           fill: $df-secondary;
+  //         }
 
-          &:hover {
-            background-color: $db-cuaternary;
-            .team-icon {
-              &.new-team {
-                background-color: $da-primary;
-                svg {
-                  fill: $db-secondary;
-                }
-              }
-            }
-          }
+  //         &:hover {
+  //           background-color: $db-cuaternary;
+  //           .team-icon {
+  //             &.new-team {
+  //               background-color: $da-primary;
+  //               svg {
+  //                 fill: $db-secondary;
+  //               }
+  //             }
+  //           }
+  //         }
 
-          .team-icon {
-            &.new-team {
-              background-color: $db-cuaternary;
-            }
-          }
-        }
-      }
+  //         .team-icon {
+  //           &.new-team {
+  //             background-color: $db-cuaternary;
+  //           }
+  //         }
+  //       }
+  //     }
 
-      .sidebar-search {
-        background-color: $db-tertiary;
-        border-color: transparent;
-        border-radius: 8px;
-        margin-bottom: 2rem;
-        margin-top: 0;
-        position: relative;
+  //     .sidebar-search {
+  //       background-color: $db-tertiary;
+  //       border-color: transparent;
+  //       border-radius: 8px;
+  //       margin-bottom: 2rem;
+  //       margin-top: 0;
+  //       position: relative;
 
-        .input-text {
-          border-radius: 8px;
-          color: $df-primary;
-          max-width: 100%;
-          padding: 6px 10px;
+  //       .input-text {
+  //         border-radius: 8px;
+  //         color: $df-primary;
+  //         max-width: 100%;
+  //         padding: 6px 10px;
 
-          &:focus {
-            border: 1px solid $da-primary;
-          }
-        }
-        ::placeholder {
-          color: $df-secondary;
-        }
+  //         &:focus {
+  //           border: 1px solid $da-primary;
+  //         }
+  //       }
+  //       ::placeholder {
+  //         color: $df-secondary;
+  //       }
 
-        .search {
-          position: absolute;
-          top: 10px;
-          right: 2px;
-        }
-      }
+  //       .search {
+  //         position: absolute;
+  //         top: 10px;
+  //         right: 2px;
+  //       }
+  //     }
 
-      .sidebar-nav {
-        li {
-          padding: 0.6rem 0.6rem 0.6rem 1.4rem;
-          &.current {
-            background-color: $db-cuaternary;
-            a {
-              font-weight: 400;
-              span {
-                color: $da-primary;
-              }
-            }
-            span {
-              color: $da-primary;
-            }
-          }
-          &:hover {
-            background-color: $db-cuaternary;
-          }
-          span {
-            color: $df-secondary;
-          }
-          &::before {
-            display: none;
-          }
+  //     .sidebar-nav {
+  //       li {
+  //         padding: 0.6rem 0.6rem 0.6rem 1.4rem;
+  //         &.current {
+  //           background-color: $db-cuaternary;
+  //           a {
+  //             font-weight: 400;
+  //             span {
+  //               color: $da-primary;
+  //             }
+  //           }
+  //           span {
+  //             color: $da-primary;
+  //           }
+  //         }
+  //         &:hover {
+  //           background-color: $db-cuaternary;
+  //         }
+  //         span {
+  //           color: $df-secondary;
+  //         }
+  //         &::before {
+  //           display: none;
+  //         }
 
-          svg {
-            display: none;
-          }
-        }
-      }
-    }
+  //         svg {
+  //           display: none;
+  //         }
+  //       }
+  //     }
+  //   }
 
-    .sidebar-empty-placeholder {
-      color: $df-secondary;
-    }
+  //   .sidebar-empty-placeholder {
+  //     color: $df-secondary;
+  //   }
 
-    // Profile sidebar
-    .profile-section {
-      background-color: $db-tertiary;
-      border-top: 1px solid $db-cuaternary;
+  //   // Profile sidebar
+  //   .profile-section {
+  //     background-color: $db-tertiary;
+  //     border-top: 1px solid $db-cuaternary;
 
-      span {
-        color: $df-primary;
-      }
+  //     span {
+  //       color: $df-primary;
+  //     }
 
-      .dashboard-comments-section {
-        border-color: transparent;
-        border-radius: 8px;
-        background-color: $db-primary;
-        height: 32px;
-        width: 32px;
+  //     .dashboard-comments-section {
+  //       border-color: transparent;
+  //       border-radius: 8px;
+  //       background-color: $db-primary;
+  //       height: 32px;
+  //       width: 32px;
 
-        .button {
-          border-radius: 8px;
-          background-color: $db-primary;
-          height: 32px;
-          width: 32px;
+  //       .button {
+  //         border-radius: 8px;
+  //         background-color: $db-primary;
+  //         height: 32px;
+  //         width: 32px;
 
-          svg {
-            fill: $df-secondary;
-          }
+  //         svg {
+  //           fill: $df-secondary;
+  //         }
 
-          &:hover {
-            background-color: $db-cuaternary;
+  //         &:hover {
+  //           background-color: $db-cuaternary;
 
-            svg {
-              fill: $da-primary;
-            }
-          }
-        }
-      }
-    }
-  }
+  //           svg {
+  //             fill: $da-primary;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   // Dashboard layout
   .dashboard-content {
