@@ -5,7 +5,9 @@
 ;; Copyright (c) KALEIDOS INC
 
 (ns app.main.ui.dashboard.files
+  (:require-macros [app.main.style :as stl])
   (:require
+   [app.main.ui.context :as ctx]
    [app.common.math :as mth]
    [app.main.data.dashboard :as dd]
    [app.main.data.events :as ev]
@@ -26,7 +28,8 @@
 
 (mf/defc header
   [{:keys [project create-fn] :as props}]
-  (let [local (mf/use-state
+  (let [new-css-system (mf/use-ctx ctx/new-css-system)
+        local (mf/use-state
                {:menu-open false
                 :edition false})
 
@@ -63,68 +66,137 @@
                      (dd/clear-selected-files))))]
 
 
-    [:header.dashboard-header
-     (if (:is-default project)
-       [:div.dashboard-title#dashboard-drafts-title
-        [:h1 (tr "labels.drafts")]]
+    (if new-css-system
+      [:header {:class (stl/css :dashboard-header)}
+       (if (:is-default project)
+         [:div#dashboard-drafts-title {:class (stl/css :dashboard-title)}
+          [:h1 (tr "labels.drafts")]]
 
-       (if (:edition @local)
-         [:& inline-edition {:content (:name project)
-                             :on-end (fn [name]
-                                       (let [name (str/trim name)]
-                                         (when-not (str/empty? name)
-                                           (st/emit! (-> (dd/rename-project (assoc project :name name))
-                                                         (with-meta {::ev/origin "project"}))))
-                                         (swap! local assoc :edition false)))}]
-         [:div.dashboard-title
-          [:h1 {:on-double-click on-edit
-                :data-test "project-title"
-                :id (:id project)}
-           (:name project)]]))
+         (if (:edition @local)
+           [:& inline-edition
+            {:content (:name project)
+             :on-end (fn [name]
+                       (let [name (str/trim name)]
+                         (when-not (str/empty? name)
+                           (st/emit! (-> (dd/rename-project (assoc project :name name))
+                                         (with-meta {::ev/origin "project"}))))
+                         (swap! local assoc :edition false)))}]
+           [:div {:class (stl/css :dashboard-title)}
+            [:h1 {:on-double-click on-edit
+                  :data-test "project-title"
+                  :id (:id project)}
+             (:name project)]]))
 
-     [:& project-menu {:project project
-                       :show? (:menu-open @local)
-                       :left (- (:x (:menu-pos @local)) 180)
-                       :top (:y (:menu-pos @local))
-                       :on-edit on-edit
-                       :on-menu-close on-menu-close
-                       :on-import on-import}]
+       [:& project-menu {:project project
+                         :show? (:menu-open @local)
+                         :left (- (:x (:menu-pos @local)) 180)
+                         :top (:y (:menu-pos @local))
+                         :on-edit on-edit
+                         :on-menu-close on-menu-close
+                         :on-import on-import}]
 
-     [:div.dashboard-header-actions
-      [:a.btn-secondary.btn-small
-       {:tab-index "0"
-        :on-click on-create-click
-        :data-test "new-file"
-        :on-key-down (fn [event]
-                       (when (kbd/enter? event)
-                         (on-create-click event)))}
-       (tr "dashboard.new-file")]
-
-      (when-not (:is-default project)
-        [:button.icon.pin-icon.tooltip.tooltip-bottom
-         {:tab-index "0"
-          :class (when (:is-pinned project) "active")
-          :on-click toggle-pin
-          :alt (tr "dashboard.pin-unpin")
+       [:div {:class (stl/css :dashboard-header-actions)}
+        [:a
+         {:class (stl/css :btn-secondary :btn-small)
+          :tab-index "0"
+          :on-click on-create-click
+          :data-test "new-file"
           :on-key-down (fn [event]
                          (when (kbd/enter? event)
-                           (toggle-pin event)))}
-         (if (:is-pinned project)
-           i/pin-fill
-           i/pin)])
+                           (on-create-click event)))}
+         (tr "dashboard.new-file")]
 
-      [:div.icon.tooltip.tooltip-bottom-left
-       {:tab-index "0"
-        :on-click on-menu-click
-        :alt (tr "dashboard.options")
-        :on-key-down (fn [event]
-                       (when (kbd/enter? event)
-                         (on-menu-click event)))}
-       i/actions]]]))
+        (when-not (:is-default project)
+          [:button
+           {:class (stl/css-case :icon true
+                                 :pin-icon true
+                                 :tooltip true
+                                 :tooltip-bottom true
+                                 :active (:is-pinned project))
+            :tab-index "0"
+            :on-click toggle-pin
+            :alt (tr "dashboard.pin-unpin")
+            :on-key-down (fn [event]
+                           (when (kbd/enter? event)
+                             (toggle-pin event)))}
+           (if (:is-pinned project)
+             i/pin-fill
+             i/pin)])
+
+        [:div
+         {:class (stl/css :icon :tooltip :tooltip-bottom-left)
+          :tab-index "0"
+          :on-click on-menu-click
+          :alt (tr "dashboard.options")
+          :on-key-down (fn [event]
+                         (when (kbd/enter? event)
+                           (on-menu-click event)))}
+         i/actions]]]
+      
+      ;; OLD
+      [:header.dashboard-header
+       (if (:is-default project)
+         [:div.dashboard-title#dashboard-drafts-title
+          [:h1 (tr "labels.drafts")]]
+
+         (if (:edition @local)
+           [:& inline-edition {:content (:name project)
+                               :on-end (fn [name]
+                                         (let [name (str/trim name)]
+                                           (when-not (str/empty? name)
+                                             (st/emit! (-> (dd/rename-project (assoc project :name name))
+                                                           (with-meta {::ev/origin "project"}))))
+                                           (swap! local assoc :edition false)))}]
+           [:div.dashboard-title
+            [:h1 {:on-double-click on-edit
+                  :data-test "project-title"
+                  :id (:id project)}
+             (:name project)]]))
+
+       [:& project-menu {:project project
+                         :show? (:menu-open @local)
+                         :left (- (:x (:menu-pos @local)) 180)
+                         :top (:y (:menu-pos @local))
+                         :on-edit on-edit
+                         :on-menu-close on-menu-close
+                         :on-import on-import}]
+
+       [:div.dashboard-header-actions
+        [:a.btn-secondary.btn-small
+         {:tab-index "0"
+          :on-click on-create-click
+          :data-test "new-file"
+          :on-key-down (fn [event]
+                         (when (kbd/enter? event)
+                           (on-create-click event)))}
+         (tr "dashboard.new-file")]
+
+        (when-not (:is-default project)
+          [:button.icon.pin-icon.tooltip.tooltip-bottom
+           {:tab-index "0"
+            :class (when (:is-pinned project) "active")
+            :on-click toggle-pin
+            :alt (tr "dashboard.pin-unpin")
+            :on-key-down (fn [event]
+                           (when (kbd/enter? event)
+                             (toggle-pin event)))}
+           (if (:is-pinned project)
+             i/pin-fill
+             i/pin)])
+
+        [:div.icon.tooltip.tooltip-bottom-left
+         {:tab-index "0"
+          :on-click on-menu-click
+          :alt (tr "dashboard.options")
+          :on-key-down (fn [event]
+                         (when (kbd/enter? event)
+                           (on-menu-click event)))}
+         i/actions]]])))
 
 (mf/defc files-section
   [{:keys [project team] :as props}]
-  (let [files-map  (mf/deref refs/dashboard-files)
+  (let [new-css-system (mf/use-ctx ctx/new-css-system)
+        files-map  (mf/deref refs/dashboard-files)
         project-id (:id project)
         width      (mf/use-state nil)
         rowref     (mf/use-ref)
@@ -186,14 +258,28 @@
       (st/emit! (dd/fetch-files {:project-id project-id})
                 (dd/clear-selected-files)))
 
-    [:*
-     [:& header {:team team
-                 :project project
-                 :create-fn create-file}]
-     [:section.dashboard-container.no-bg {:ref rowref}
-      [:& grid {:project project
-                :files files
-                :origin :files
-                :create-fn create-file
-                :limit limit}]]]))
+    (if new-css-system
+      [:*
+       [:& header {:team team
+                   :project project
+                   :create-fn create-file}]
+       [:section {:class (stl/css :dashboard-container :no-bg)
+                  :ref rowref}
+        [:& grid {:project project
+                  :files files
+                  :origin :files
+                  :create-fn create-file
+                  :limit limit}]]]
+
+      ;; OLD
+      [:*
+       [:& header {:team team
+                   :project project
+                   :create-fn create-file}]
+       [:section.dashboard-container.no-bg {:ref rowref}
+        [:& grid {:project project
+                  :files files
+                  :origin :files
+                  :create-fn create-file
+                  :limit limit}]]])))
 

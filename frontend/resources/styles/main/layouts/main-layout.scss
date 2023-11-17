@@ -345,119 +345,119 @@
 
     // Settings
     .dashboard-container {
-      background-color: transparent;
-      border-top: 1px solid $db-cuaternary;
+      // background-color: transparent;
+      // border-top: 1px solid $db-cuaternary;
 
-      .dashboard-settings {
-        a {
-          color: $df-secondary;
-        }
-        .form-container {
-          width: 800px;
-          margin: 80px auto auto 120px;
-          form {
-            width: 468px;
-            .fields-row {
-              .custom-input,
-              .custom-select {
-                flex-direction: column-reverse;
-                label {
-                  position: relative;
-                  text-transform: uppercase;
-                  color: $df-primary;
-                  font-size: 11px;
-                  margin-bottom: 12px;
-                  margin-left: -4px;
-                }
-                input,
-                select {
-                  background-color: $db-tertiary;
-                  border-radius: 8px;
-                  border-color: transparent;
-                  color: $df-primary;
-                  padding: 0 15px;
-                  &:focus {
-                    outline: 1px solid $da-primary;
-                  }
-                  ::placeholder {
-                    color: $df-secondary;
-                  }
-                }
-                .help-icon {
-                  bottom: 12px;
-                  top: auto;
-                  svg {
-                    fill: $df-secondary;
-                  }
-                }
-                &.disabled {
-                  input {
-                    background-color: $db-primary;
-                    border-color: $db-cuaternary;
-                    color: $df-secondary;
-                  }
-                }
-                .input-container {
-                  background-color: $db-tertiary;
-                  border-radius: 8px;
-                  border-color: transparent;
-                  margin-top: 22px;
-                  .main-content {
-                    label {
-                      position: absolute;
-                      top: -24px;
-                    }
-                    span {
-                      color: $df-primary;
-                    }
-                  }
-                  &:focus {
-                    border: 1px solid $da-primary;
-                  }
-                }
-                textarea {
-                  border-radius: 8px;
-                  padding: 12px 14px;
-                  background-color: $db-tertiary;
-                  color: $df-primary;
-                  border: none;
-                  &:focus {
-                    outline: 1px solid $da-primary;
-                  }
-                }
-              }
-            }
-            .field-title {
-              color: $df-primary;
-            }
-            .field-title:not(:first-child) {
-              margin-top: 64px;
-            }
+      // .dashboard-settings {
+      //   a {
+      //     color: $df-secondary;
+      //   }
+      //   .form-container {
+      //     width: 800px;
+      //     margin: 80px auto auto 120px;
+      //     form {
+      //       width: 468px;
+      //       .fields-row {
+      //         .custom-input,
+      //         .custom-select {
+      //           flex-direction: column-reverse;
+      //           label {
+      //             position: relative;
+      //             text-transform: uppercase;
+      //             color: $df-primary;
+      //             font-size: 11px;
+      //             margin-bottom: 12px;
+      //             margin-left: -4px;
+      //           }
+      //           input,
+      //           select {
+      //             background-color: $db-tertiary;
+      //             border-radius: 8px;
+      //             border-color: transparent;
+      //             color: $df-primary;
+      //             padding: 0 15px;
+      //             &:focus {
+      //               outline: 1px solid $da-primary;
+      //             }
+      //             ::placeholder {
+      //               color: $df-secondary;
+      //             }
+      //           }
+      //           .help-icon {
+      //             bottom: 12px;
+      //             top: auto;
+      //             svg {
+      //               fill: $df-secondary;
+      //             }
+      //           }
+      //           &.disabled {
+      //             input {
+      //               background-color: $db-primary;
+      //               border-color: $db-cuaternary;
+      //               color: $df-secondary;
+      //             }
+      //           }
+      //           .input-container {
+      //             background-color: $db-tertiary;
+      //             border-radius: 8px;
+      //             border-color: transparent;
+      //             margin-top: 22px;
+      //             .main-content {
+      //               label {
+      //                 position: absolute;
+      //                 top: -24px;
+      //               }
+      //               span {
+      //                 color: $df-primary;
+      //               }
+      //             }
+      //             &:focus {
+      //               border: 1px solid $da-primary;
+      //             }
+      //           }
+      //           textarea {
+      //             border-radius: 8px;
+      //             padding: 12px 14px;
+      //             background-color: $db-tertiary;
+      //             color: $df-primary;
+      //             border: none;
+      //             &:focus {
+      //               outline: 1px solid $da-primary;
+      //             }
+      //           }
+      //         }
+      //       }
+      //       .field-title {
+      //         color: $df-primary;
+      //       }
+      //       .field-title:not(:first-child) {
+      //         margin-top: 64px;
+      //       }
 
-            .field-text {
-              color: $df-secondary;
-            }
-            button,
-            .btn-secondary {
-              width: 100%;
-              font-size: 11px;
-              text-transform: uppercase;
-              background-color: $db-tertiary;
-              color: $df-primary;
-              &:hover {
-                color: $da-primary;
-                background-color: $db-cuaternary;
-              }
-            }
-            hr {
-              display: none;
-            }
-          }
-          .links {
-            margin-top: 12px;
-          }
-        }
-      }
+      //       .field-text {
+      //         color: $df-secondary;
+      //       }
+      //       button,
+      //       .btn-secondary {
+      //         width: 100%;
+      //         font-size: 11px;
+      //         text-transform: uppercase;
+      //         background-color: $db-tertiary;
+      //         color: $df-primary;
+      //         &:hover {
+      //           color: $da-primary;
+      //           background-color: $db-cuaternary;
+      //         }
+      //       }
+      //       hr {
+      //         display: none;
+      //       }
+      //     }
+      //     .links {
+      //       margin-top: 12px;
+      //     }
+      //   }
+      // }
 
       //Access tokens
       .dashboard-access-tokens {
@@ -724,46 +724,46 @@
     }
   }
 
-  .dashboard-header {
-    background-color: transparent;
-    .dashboard-title {
-      h1 {
-        color: $df-primary;
-        font-size: 24px;
-        font-weight: 400;
-        width: 100%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        display: block;
-        max-width: 700px;
-      }
-    }
-    .icon {
-      svg {
-        fill: $df-secondary;
-      }
-    }
+  // .dashboard-header {
+  //   background-color: transparent;
+  //   .dashboard-title {
+  //     h1 {
+  //       color: $df-primary;
+  //       font-size: 24px;
+  //       font-weight: 400;
+  //       width: 100%;
+  //       text-overflow: ellipsis;
+  //       overflow: hidden;
+  //       white-space: nowrap;
+  //       display: block;
+  //       max-width: 700px;
+  //     }
+  //   }
+  //   .icon {
+  //     svg {
+  //       fill: $df-secondary;
+  //     }
+  //   }
 
-    // Settings sub-menu
-    .dashboard-header-options {
-      li {
-        a {
-          font-size: 16px;
-          color: $df-secondary;
-          border-color: transparent;
-          &:hover {
-            color: $df-primary;
-          }
-        }
-        &.active {
-          a {
-            color: $df-primary;
-          }
-        }
-      }
-    }
-  }
+  //   // Settings sub-menu
+  //   .dashboard-header-options {
+  //     li {
+  //       a {
+  //         font-size: 16px;
+  //         color: $df-secondary;
+  //         border-color: transparent;
+  //         &:hover {
+  //           color: $df-primary;
+  //         }
+  //       }
+  //       &.active {
+  //         a {
+  //           color: $df-primary;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   // Hero banners
   .team-hero {
@@ -826,120 +826,120 @@
   }
 
   // Dashboard content
-  .dashboard-project-row .project {
-    background-color: transparent;
+  //.dashboard-project-row .project {
+  //  background-color: transparent;
+  //
+  //  h2 {
+  //    color: $df-primary;
+  //    font-weight: 400;
+  //  }
+  //  span {
+  //    color: $df-secondary;
+  //  }
+  //  .project-actions {
+  //    svg {
+  //      fill: $df-primary;
+  //    }
+  //    .pin-icon {
+  //      svg.icon-pin-fill {
+  //        fill: $df-secondary;
+  //      }
+  //    }
+  //  }
+  //}
 
-    h2 {
-      color: $df-primary;
-      font-weight: 400;
-    }
-    span {
-      color: $df-secondary;
-    }
-    .project-actions {
-      svg {
-        fill: $df-primary;
-      }
-      .pin-icon {
-        svg.icon-pin-fill {
-          fill: $df-secondary;
-        }
-      }
-    }
-  }
+  //.dashboard-sidebar .sidebar-content hr {
+  //  border-color: transparent;
+  //  margin: 0.8rem 15px;
+  //}
+  //
+  //.icon {
+  //  svg {
+  //    fill: $df-secondary;
+  //  }
+  //}
 
-  .dashboard-sidebar .sidebar-content hr {
-    border-color: transparent;
-    margin: 0.8rem 15px;
-  }
+  //.btn-primary {
+  //  background-color: $da-tertiary;
+  //  border-radius: 8px;
+  //  color: $db-primary;
+  //  height: 32px;
+  //  text-transform: uppercase;
+  //  &:hover {
+  //    background-color: darken($da-tertiary, 10%);
+  //    color: $db-primary;
+  //  }
+  //}
 
-  .icon {
-    svg {
-      fill: $df-secondary;
-    }
-  }
-
-  .btn-primary {
-    background-color: $da-tertiary;
-    border-radius: 8px;
-    color: $db-primary;
-    height: 32px;
-    text-transform: uppercase;
-    &:hover {
-      background-color: darken($da-tertiary, 10%);
-      color: $db-primary;
-    }
-  }
-
-  .btn-secondary {
-    background-color: $db-tertiary;
-    text-transform: uppercase;
-    border: none;
-    color: $df-primary;
-    border-radius: 8px;
-
-    &:hover {
-      background-color: $db-cuaternary;
-      color: $da-primary;
-      svg {
-        fill: $da-primary;
-      }
-    }
-  }
+  // .btn-secondary {
+  //   background-color: $db-tertiary;
+  //   text-transform: uppercase;
+  //   border: none;
+  //   color: $df-primary;
+  //   border-radius: 8px;
+  // 
+  //   &:hover {
+  //     background-color: $db-cuaternary;
+  //     color: $da-primary;
+  //     svg {
+  //       fill: $da-primary;
+  //     }
+  //   }
+  // }
 
   // File cards
-  .dashboard-grid {
-    .grid-item {
-      &.project-th {
-        background-color: transparent;
-        border-radius: 8px;
-        padding-top: 0.3rem;
-        .info-wrapper {
-          cursor: pointer;
-          .item-info {
-            h3 {
-              color: $df-primary;
-              font-size: 16px;
-              font-weight: 400;
-            }
-          }
-          .date {
-            color: $df-secondary;
-          }
-          .project-th-actions {
-            .project-th-icon {
-              margin-top: 0;
-              .icon-actions {
-                fill: $df-secondary;
-              }
-            }
-          }
-        }
+  // .dashboard-grid {
+  //   .grid-item {
+  //     &.project-th {
+  //       background-color: transparent;
+  //       border-radius: 8px;
+  //       padding-top: 0.3rem;
+  //       .info-wrapper {
+  //         cursor: pointer;
+  //         .item-info {
+  //           h3 {
+  //             color: $df-primary;
+  //             font-size: 16px;
+  //             font-weight: 400;
+  //           }
+  //         }
+  //         .date {
+  //           color: $df-secondary;
+  //         }
+  //         .project-th-actions {
+  //           .project-th-icon {
+  //             margin-top: 0;
+  //             .icon-actions {
+  //               fill: $df-secondary;
+  //             }
+  //           }
+  //         }
+  //       }
 
-        &:hover {
-          background-color: $db-tertiary;
-          .grid-item-th {
-            border: none;
-          }
-        }
-      }
+  //       &:hover {
+  //         background-color: $db-tertiary;
+  //         .grid-item-th {
+  //           border: none;
+  //         }
+  //       }
+  //     }
 
-      .grid-item-th {
-        border-radius: 4px;
-        border: none;
-        cursor: pointer;
-      }
+  //     .grid-item-th {
+  //       border-radius: 4px;
+  //       border: none;
+  //       cursor: pointer;
+  //     }
 
-      .item-badge {
-        background-color: $da-primary;
-        border: none;
-        border-radius: 4px;
-        svg {
-          fill: $db-secondary;
-        }
-      }
-    }
-  }
+  //     .item-badge {
+  //       background-color: $da-primary;
+  //       border: none;
+  //       border-radius: 4px;
+  //       svg {
+  //         fill: $db-secondary;
+  //       }
+  //     }
+  //   }
+  // }
 
   // Libraries slider
   .dashboard-templates-section {

@@ -5,7 +5,9 @@
 ;; Copyright (c) KALEIDOS INC
 
 (ns app.main.ui.dashboard.search
+  (:require-macros [app.main.style :as stl])
   (:require
+   [app.main.ui.context :as ctx]
    [app.common.math :as mth]
    [app.main.data.dashboard :as dd]
    [app.main.refs :as refs]

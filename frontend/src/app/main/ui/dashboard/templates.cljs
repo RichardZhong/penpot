@@ -5,7 +5,9 @@
 ;; Copyright (c) KALEIDOS INC
 
 (ns app.main.ui.dashboard.templates
+  (:require-macros [app.main.style :as stl])
   (:require
+   [app.main.ui.context :as ctx]
    [app.common.data.macros :as dm]
    [app.common.math :as mth]
    [app.config :as cf]

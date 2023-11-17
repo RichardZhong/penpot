@@ -53,7 +53,8 @@
 
 (mf/defc dashboard-content
   [{:keys [team projects project section search-term profile] :as props}]
-  (let [container          (mf/use-ref)
+  (let [new-css-system (mf/use-ctx ctx/new-css-system)
+        container          (mf/use-ref)
         content-width      (mf/use-state 0)
         project-id         (:id project)
         team-id            (:id team)
@@ -82,60 +83,118 @@
 
     (mf/use-effect on-resize)
 
-    [:div.dashboard-content {:on-click clear-selected-fn :ref container}
-     (case section
-       :dashboard-projects
-       [:*
-        [:& projects-section
-         {:team team
-          :projects projects
-          :profile profile
-          :default-project-id default-project-id}]
-
-        (when (contains? cf/flags :dashboard-templates-section)
-          [:& templates-section {:profile profile
-                                 :project-id project-id
-                                 :team-id team-id
-                                 :default-project-id default-project-id
-                                 :content-width @content-width}])]
-
-       :dashboard-fonts
-       [:& fonts-page {:team team}]
-
-       :dashboard-font-providers
-       [:& font-providers-page {:team team}]
-
-       :dashboard-files
-       (when project
+    (if new-css-system
+      [:div {:class (stl/css :dashboard-content)
+             :on-click clear-selected-fn :ref container}
+       (case section
+         :dashboard-projects
          [:*
-          [:& files-section {:team team :project project}]
+          [:& projects-section
+           {:team team
+            :projects projects
+            :profile profile
+            :default-project-id default-project-id}]
+
           (when (contains? cf/flags :dashboard-templates-section)
             [:& templates-section {:profile profile
-                                   :team-id team-id
                                    :project-id project-id
+                                   :team-id team-id
                                    :default-project-id default-project-id
-                                   :content-width @content-width}])])
+                                   :content-width @content-width}])]
 
-       :dashboard-search
-       [:& search-page {:team team
-                        :search-term search-term}]
+         :dashboard-fonts
+         [:& fonts-page {:team team}]
 
-       :dashboard-libraries
-       [:& libraries-page {:team team}]
+         :dashboard-font-providers
+         [:& font-providers-page {:team team}]
 
-       :dashboard-team-members
-       [:& team-members-page {:team team :profile profile}]
+         :dashboard-files
+         (when project
+           [:*
+            [:& files-section {:team team :project project}]
+            (when (contains? cf/flags :dashboard-templates-section)
+              [:& templates-section {:profile profile
+                                     :team-id team-id
+                                     :project-id project-id
+                                     :default-project-id default-project-id
+                                     :content-width @content-width}])])
 
-       :dashboard-team-invitations
-       [:& team-invitations-page {:team team}]
+         :dashboard-search
+         [:& search-page {:team team
+                          :search-term search-term}]
 
-       :dashboard-team-webhooks
-       [:& team-webhooks-page {:team team}]
+         :dashboard-libraries
+         [:& libraries-page {:team team}]
 
-       :dashboard-team-settings
-       [:& team-settings-page {:team team :profile profile}]
+         :dashboard-team-members
+         [:& team-members-page {:team team :profile profile}]
 
-       nil)]))
+         :dashboard-team-invitations
+         [:& team-invitations-page {:team team}]
+
+         :dashboard-team-webhooks
+         [:& team-webhooks-page {:team team}]
+
+         :dashboard-team-settings
+         [:& team-settings-page {:team team :profile profile}]
+
+         nil)]
+
+      ;; OLD
+      [:div.dashboard-content {:on-click clear-selected-fn :ref container}
+       (case section
+         :dashboard-projects
+         [:*
+          [:& projects-section
+           {:team team
+            :projects projects
+            :profile profile
+            :default-project-id default-project-id}]
+
+          (when (contains? cf/flags :dashboard-templates-section)
+            [:& templates-section {:profile profile
+                                   :project-id project-id
+                                   :team-id team-id
+                                   :default-project-id default-project-id
+                                   :content-width @content-width}])]
+
+         :dashboard-fonts
+         [:& fonts-page {:team team}]
+
+         :dashboard-font-providers
+         [:& font-providers-page {:team team}]
+
+         :dashboard-files
+         (when project
+           [:*
+            [:& files-section {:team team :project project}]
+            (when (contains? cf/flags :dashboard-templates-section)
+              [:& templates-section {:profile profile
+                                     :team-id team-id
+                                     :project-id project-id
+                                     :default-project-id default-project-id
+                                     :content-width @content-width}])])
+
+         :dashboard-search
+         [:& search-page {:team team
+                          :search-term search-term}]
+
+         :dashboard-libraries
+         [:& libraries-page {:team team}]
+
+         :dashboard-team-members
+         [:& team-members-page {:team team :profile profile}]
+
+         :dashboard-team-invitations
+         [:& team-invitations-page {:team team}]
+
+         :dashboard-team-webhooks
+         [:& team-webhooks-page {:team team}]
+
+         :dashboard-team-settings
+         [:& team-settings-page {:team team :profile profile}]
+
+         nil)])))
 
 (mf/defc dashboard
   [{:keys [route profile] :as props}]
