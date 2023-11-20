@@ -6,7 +6,9 @@
 
 (ns app.main.ui.settings.feedback
   "Feedback form."
+  (:require-macros [app.main.style :as stl])
   (:require
+   [app.main.ui.context :as ctx]
    [app.common.spec :as us]
    [app.main.data.messages :as dm]
    [app.main.refs :as refs]
