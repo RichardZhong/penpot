@@ -385,26 +385,21 @@
               [:& component-group-item {:item item :on-enter-group on-enter-group}]))]]]))
 
 (mf/defc component-ctx-menu
-  [{:keys [menu-entries on-close show type] :as props}]
-  (case type
-    :context-menu
-    [:& context-menu {:on-close on-close
-                      :show show
-                      :options
-                      (vec (for [entry menu-entries :when (not (nil? entry))]
-                             [(tr (:msg entry)) (:action entry)]))}]
-    :dropdown
-    [:& dropdown {:show show :on-close on-close}
-     [:ul {:class (stl/css :custom-select-dropdown)}
-      (for [entry menu-entries :when (not (nil? entry))]
-        [:li {:key (uuid/next)
-              :class (stl/css :dropdown-element)
-              :on-click (fn [event]
-                          (dom/stop-propagation event)
-                          ((:action entry))
-                          (on-close))}
-         [:span {:class (stl/css :dropdown-label)}
-          (tr (:msg  entry))]])]]))
+  [{:keys [menu-entries on-close show] :as props}]
+  (let [do-action
+        (fn [action event]
+          (dom/stop-propagation event)
+          (action)
+          (on-close))]
+  [:& dropdown {:show show :on-close on-close}
+   [:ul {:class (stl/css :custom-select-dropdown)}
+    (for [entry menu-entries :when (not (nil? entry))]
+      [:li {:key (uuid/next)
+            :class (stl/css :dropdown-element)
+            :on-click (partial do-action (:action entry))}
+       [:span {:class (stl/css :dropdown-label)}
+        (tr (:msg  entry))]])]]))
+
 
 (mf/defc component-menu
   [{:keys [shapes swap-opened?] :as props}]
